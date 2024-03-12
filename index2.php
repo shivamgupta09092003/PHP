@@ -1,3 +1,5 @@
+#index.php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,5 +18,20 @@
     <input source="text" name="name" placeholder="Enter the name"> <br>
     <input type="Submit" value="Submit">
 </form>   
+</body>
+</html>
+
+#data.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Submit</title>
+</head>
+<body>
+    <h1> Welcome </h1>
+    <h2>
+        <?php echo $_POST["name"];?>
+</h2>
 </body>
 </html>
