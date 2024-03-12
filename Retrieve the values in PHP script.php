@@ -1,3 +1,5 @@
+#index.php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,5 +16,21 @@
         Enter your number: <br>
         <input source ="number" name="number" placeholder="Enter the number"> <br>
         <input type = "submit" value = "submit">
+</body>
+</html>
+
+#data.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Submit</title>
+</head>
+<body>
+    <h1> Welcome </h1>
+    <h2> <?php echo $_POST["name"]; ?> </h2>
+    <h1> Number </h1>
+    <h2> <?php echo $_POST["number"];?>
+</h2>
 </body>
 </html>
