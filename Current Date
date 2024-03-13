@@ -1,0 +1,4 @@
+<?php
+$date = getdate();
+echo "The current date is: " . $date['mday'] . "/" . $date['mon'] . "/" . $date['year'];
+?>
