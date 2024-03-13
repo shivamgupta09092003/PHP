@@ -1,3 +1,4 @@
+#index.php
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,5 +15,35 @@
   <input type="number" name="num3" placeholder="Enter the third number">
   <input type="submit" value="Find Maximum">
 </form>
+</body>
+</html>
+
+#data.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<?php
+function findMax($num1, $num2, $num3) {
+  if ($num1 > $num2 && $num1 > $num3) {
+    return $num1;
+  } else if ($num2 > $num3) {
+    return $num2;
+  } else {
+    return $num3;
+  }
+}
+$num1 = $_POST["num1"];
+$num2 = $_POST["num2"];
+$num3 = $_POST["num3"];
+$max = findMax($num1, $num2, $num3);
+echo "The maximum number of these $num1, $num2, and $num3 is $max.";
+?>
 </body>
 </html>
