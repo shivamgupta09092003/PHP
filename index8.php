@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong Number</title>
+</head>
+<body>
+    <center>
+        <form action="index8.php" method="post">
+            <label for="num1">Enter the number: </label>
+            <input type="number" name="num1" id="num1">
+            <input type="Submit" value="check" name="submit">
+        </form>
+    <pre>
+        <?php 
+        if(isset($_POST['submit'])){
+            $number = $_POST['num1'];
+            $sum=0; $copy=$number;
+            if($number!=0){
+                while(floor($number)){
+                $a=$number%10;
+                $sum+=$a*$a*$a;
+                $number=$number/10;
+            }
+        }
+        
+            if($sum==$copy){
+                echo $copy . "is a Armstrong number";
+            }else{
+                echo $copy . "is not a Armstrong number";
+            }
+        }
+        ?>
+    </pre>
+    </center>
+</body>
+</html>
