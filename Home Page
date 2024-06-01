@@ -1,3 +1,5 @@
+#page.php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,5 +40,26 @@
             <a href="about1.php">About</a>
         </nav>
     </header>
+</body>
+</html>
+
+Home.php
+
+<?php include 'page.php'; ?>
+<section>
+    <font color="#0000CC"> <h2>Welcome to our Home Page!!</h2> </font>
+    <font color="#0000CC"> <p>This is the Home Page Contents.</p> </font>
+</section>
+</body>
+</html>
+
+
+About.php
+
+<?php include 'page.php'; ?>
+<section>
+    <font color="#0000CC"> <h2>About Us</h2> </font>
+    <font color="#0000CC"> <p>This is about Page Contents.</p> </font>
+</section>
 </body>
 </html>
