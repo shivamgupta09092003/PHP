@@ -8,7 +8,7 @@
 <body>
     <center>
         <form action="Calculator.php" method="post">
-            Enter the first numbert <input type="number" name="number1"><br>
+            Enter the first number <input type="number" name="number1"><br>
             Enter the second number <input type="number" name="number2"><br>
             Choose your operator <select name="op" id="op">
                 <option value="---">Select your operator</option>
