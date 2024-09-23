@@ -3,64 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Mathematical Calculator</title>
 </head>
 <body>
     <center>
-        <form action="Calculator.php" method="post">
-            Enter the first number <input type="number" name="number1"><br>
-            Enter the second number <input type="number" name="number2"><br>
-            Choose your operator <select name="op" id="op">
-                <option value="---">Select your operator</option>
-                <option value="+">Addition (+)</option>
-                <option value="-">Substraction (-)</option>
-                <option value="">Multiplication ()</option>
-                <option value="/">Division (/)</option>
-                <option value="%">Modulas (%)</option>
-            </select>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            Enter the first number: <input type="number" name="num1"><br>
+            Enter the operator: 
+            <select name="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select><br>
+            Enter the second number: <input type="number" name="num2"><br>
             <input type="submit" name="submit">
         </form>
         <?php 
         if(isset($_POST["submit"])){
-            $number1=$_POST['number1'];
-            $number2 = $_POST['number2'];
-            $op = $_POST['op'];
-
-            if(!empty($number1) && !empty($number2)){
-                switch ($op) {
-                    case '+':
-                        $add = $number1+$number2;
-                        echo $add;
+            $num1 = $_POST['num1'];
+            $operator = $_POST['operator'];
+            $num2 = $_POST['num2'];
+            
+            if(!empty($num1) && is_numeric($num1) && !empty($num2) && is_numeric($num2)){
+                echo "<h2>Mathematical Calculator</h2>";
+                echo "Number 1: $num1 <br>";
+                echo "Operator: $operator <br>";
+                echo "Number 2: $num2 <br>";
+                
+                // Perform arithmetic operations
+                switch($operator){
+                    case "+":
+                        $result = $num1 + $num2;
                         break;
-                        case '-':
-                            $sub = $number1-$number2;
-                            echo $sub;
-                            break;
-                            case '*':
-                                $mul = $number1*$number2;
-                                echo $mul;
-                                break;
-                                case '/':
-                                    $div = $number1/$number2;
-                                    echo $div;
-                                    break;
-                                    case '%':
-                                        $mod = $number1%$number2;
-                                        echo $mod;
-                                        break;
-                    
+                    case "-":
+                        $result = $num1 - $num2;
+                        break;
+                    case "*":
+                        $result = $num1 * $num2;
+                        break;
+                    case "/":
+                        if($num2 != 0){
+                            $result = $num1 / $num2;
+                        }else{
+                            echo "<h5 style='color:red;'>Cannot divide by zero!</h5></br>";
+                            exit;
+                        }
+                        break;
                     default:
-                        echo "<h5 style='color:red;'>Please fill all the inputs!</h5>";
-                        break;
+                        echo "<h5 style='color:red;'>Invalid operator!</h5></br>";
+                        exit;
                 }
-
+                
+                echo "Result: $result";
             }else{
-                echo "<h5 style='color:red;'>Please fill this all inputs!</h5></br>";
+                echo "<h5 style='color:red;'>Please enter valid numbers!</h5></br>";
             }
         }
-        
         ?>
     </center>
-    
 </body>
 </html>
